@@ -11,8 +11,9 @@ class WebServer(BaseHTTPRequestHandler):
     
     def do_GET(self):
 
+        print(self.path)
         if self.path == "/":
-            self.path = "index.html"
+            self.path = "/index.html"
 
         try:
             
@@ -23,7 +24,7 @@ class WebServer(BaseHTTPRequestHandler):
                     
                     content = open('./public/projects.html').read()
                     
-                    api = GithubAPI('token', 'nicholasshort')
+                    api = GithubAPI('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', 'nicholasshort')
                     repos = api.get_starred_repo_names()
                     
                     for repo in repos:
