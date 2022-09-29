@@ -2,10 +2,13 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import socket
 import os
 
+from api import GithubAPI
+
 hostName = socket.gethostbyname(socket.gethostname())
 serverPort = 80
 
 class WebServer(BaseHTTPRequestHandler):
+    
     def do_GET(self):
 
         if self.path == "/":
@@ -14,10 +17,30 @@ class WebServer(BaseHTTPRequestHandler):
         try:
             
             if self.path.split(".")[-1] == "html" or self.path.split(".")[-1] == "css":
-                f = open("./public" + self.path).read()
-                self.send_response(200)
-                self.end_headers()
-                self.wfile.write(bytes(f, "utf-8"))
+                
+                # Get html from github api
+                if self.path == '/projects.html':
+                    
+                    content = open('./public/projects.html').read()
+                    
+                    api = GithubAPI('token', 'nicholasshort')
+                    repos = api.get_starred_repo_names()
+                    
+                    for repo in repos:
+                        content = content + '<h2>' + repo + '</h2>'
+                        content = content + api.get_readme(repo).content.decode("utf-8")
+                        content = content + '<br><br><br><br>'
+
+                    self.send_response(200)
+                    self.end_headers()
+                    self.wfile.write(bytes(content, "utf-8"))
+                
+                # Static files (no api)  
+                else:
+                    f = open("./public" + self.path).read()
+                    self.send_response(200)
+                    self.end_headers()
+                    self.wfile.write(bytes(f, "utf-8"))
             
             elif self.path.split(".")[-1] == "jpg":
                 f = open("./public" + self.path, "rb").read()

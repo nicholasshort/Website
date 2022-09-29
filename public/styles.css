@@ -14,9 +14,6 @@ main {
     text-align: center;
 }
 
-.title{
-    font-size: x-large;
-}
 
 #photo{
     height: auto; 
@@ -43,6 +40,21 @@ header::after{
     content: '';
     display: table;
     clear: both;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: medium;
+}
+
+h2 {
+    font-family: Georgia, serif;
+    font-size: xx-large;
+}
+
+h3 {
+    font-family: Georgia, serif;
+    font-size: x-large;
 }
 
 nav {
