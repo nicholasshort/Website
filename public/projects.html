@@ -15,7 +15,6 @@
                     <li><a href = "resume.html">Resume</a></li>
                     <li><a href = "index.html">Home</a></li>
                     <li><a href = "projects.html">Projects</a></li>
-                    <li><a href = "contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -26,6 +25,96 @@
     <main>
 
         <h3>Projects</h3>
+
+        <h2>TwoWheelRobot</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 dir="auto"><a id="user-content-twowheelrobot" class="anchor" aria-hidden="true" href="#twowheelrobot"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>TwoWheelRobot</h1>
+            <p dir="auto">This is a project I started to learn more about control theory.</p>
+            <p dir="auto">The project consists of three main folders:</p>
+            <ol dir="auto">
+            <li>Arduino Code</li>
+            <li>Hand Derivations for the Linearized State Space Model of a Pendulum on a Cart</li>
+            <li>Matlab/Python Pendulum on a Cart Simulation Files</li>
+            </ol>
+            <p dir="auto">I will try to go over each folder in the remainder of this readme.</p>
+            <h1 dir="auto"><a id="user-content-the-robot" class="anchor" aria-hidden="true" href="#the-robot"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>The Robot</h1>
+            <p dir="auto">The Bill of Materials for this project can be found here: <a href="https://docs.google.com/document/d/1V8id3cu9YUFI_mSXT52ZumMh5tL_UX_wbOAgka5fCik/edit?usp=sharing" rel="nofollow">https://docs.google.com/document/d/1V8id3cu9YUFI_mSXT52ZumMh5tL_UX_wbOAgka5fCik/edit?usp=sharing</a></p>
+            <p dir="auto">To control the robot, I use a PID controller, with the help of a Kalman filter (defined in KalmanFilter.h) to filter out the noise from the accelerometer and to factor in gyroscope drift. A good artilce on the fundamentals of the Kalman filter can be found here: <a href="https://blog.tkjelectronics.dk/2012/09/a-practical-approach-to-kalman-filter-and-how-to-implement-it/" rel="nofollow">https://blog.tkjelectronics.dk/2012/09/a-practical-approach-to-kalman-filter-and-how-to-implement-it/</a></p>
+            <p dir="auto">One thing to note for my design was that the position of the IMU board relative to the base of the robot resulted in greater angular accelerations and thus greater noise from the accelerometer. Therefore, the measurement noise variance had to be set to a greater value than the generic value recommended in the article above.</p>
+            <p dir="auto">Here is a video of the robot maintaining balance on youtube:</p>
+            <p dir="auto"><a href="https://www.youtube.com/shorts/AJx97sAAVso" rel="nofollow"><img src="https://user-images.githubusercontent.com/56266904/192440144-565a7b4c-8bcb-4bce-8606-3520d222bb25.PNG" alt="Robot" style="max-width: 100%;"></a></p>
+            <h1 dir="auto"><a id="user-content-hand-derivations" class="anchor" aria-hidden="true" href="#hand-derivations"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Hand Derivations</h1>
+            <p dir="auto">The two wheel robot can be modeled as a pendulum on a cart. I used Newton's Laws to derive the state space model of the pendulum-cart system, and then reduced the number of states to only focus on the angle of the pendulum.</p>
+            <h1 dir="auto"><a id="user-content-matlab-and-python-simulations" class="anchor" aria-hidden="true" href="#matlab-and-python-simulations"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Matlab and Python Simulations</h1>
+            <p dir="auto">I used matlab and python to simulate/verify my the state space model from my hand derivations, and to develop a full-state feedback control loop to control the cart and pendulum about a fixed angle and position respectively. Running PendulumCartSim.py will show a small animation of the implementation of this control law.</p>
+            <p dir="auto">Here is the animation without any control:
+            <a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/56266904/189573809-808b3170-8c6b-4a50-8f01-f93935982ef1.gif"><img src="https://user-images.githubusercontent.com/56266904/189573809-808b3170-8c6b-4a50-8f01-f93935982ef1.gif" alt="final_631eb3e16659cb00835e07b7_296242" data-animated-image="" style="max-width: 100%;"></a></p>
+            <p dir="auto">Here is the animation of the linearized system with full state feedback:
+            <a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/56266904/189573871-6fa7416a-b05d-4d48-8bf4-04387191e27d.gif"><img src="https://user-images.githubusercontent.com/56266904/189573871-6fa7416a-b05d-4d48-8bf4-04387191e27d.gif" alt="final_631eb2a96fb6b5005e3506c4_549431" data-animated-image="" style="max-width: 100%;"></a></p>
+            <p dir="auto">Additionally, I also tried to control the system using a PID controller. In "PID_Tuning.m", I implemented a very slow root-locus plot in Matlab to generate proper PID gain values to stabilize the system. An example of the root locus plot can be seen below.</p>
+            <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/56266904/193131380-6aaf6019-71dd-4641-b3de-32287012b90b.png"><img src="https://user-images.githubusercontent.com/56266904/193131380-6aaf6019-71dd-4641-b3de-32287012b90b.png" alt="Root Locus" style="max-width: 100%;"></a></p>
+            <p dir="auto">I then used the PID values found from the locus plot to plot the system's step response (Note these are not optimal PID values)</p>
+            <p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/56266904/193131499-19a54724-9446-4e4c-9113-1089725a0c2e.png"><img src="https://user-images.githubusercontent.com/56266904/193131499-19a54724-9446-4e4c-9113-1089725a0c2e.png" alt="Step Response" style="max-width: 100%;"></a></p>
+            </article></div><br><br><br><br><h2>SlidingPuzzle</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 dir="auto"><a id="user-content-sliding-puzzle-game" class="anchor" aria-hidden="true" href="#sliding-puzzle-game"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Sliding Puzzle Game</h1>
+            <p dir="auto"><br>A sliding puzzle game to be implemented on a DE1-SoC Computer. Source code included in the repository. <br>
+            CPUlator can also be used to load the game: <a href="https://cpulator.01xz.net/?sys=arm-de1soc" rel="nofollow">https://cpulator.01xz.net/?sys=arm-de1soc</a></p>
+            <p dir="auto"><br><b>Developers:</b> Paula Perdomo and Nicholas Short <br>
+            <b>ECE243 Computer Organization - 2021 Academic Year </b></p>
+            <p dir="auto">The game has multiple game modes and celebratory animation for when the user wins. Makes use of the:</p>
+            <ul dir="auto">
+            <li>VGA display for game graphics.</li>
+            <li>A9 private timer to track the user duration.</li>
+            <li>Hex Displays for timer display.</li>
+            <li>Keyboard input for tile usage</li>
+            <li>Interrupts for signal processing.</li>
+            </ul>
+            <p dir="auto"><a target="_blank" rel="noopener noreferrer" href="images/firstphoto.png"><img src="images/firstphoto.png" alt="" style="max-width: 100%;"></a></p>
+            <h1 dir="auto"><a id="user-content-to-play-sliding-puzzle-game" class="anchor" aria-hidden="true" href="#to-play-sliding-puzzle-game"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>To play Sliding Puzzle Game...</h1>
+            <p dir="auto"><br>The game starts with a loading screen displayed on the VGA while the program precomputes some animation data. <b>Controls of the game for moving the tiles are the WASD keys.</b><br>
+            <br>A: Left, S: Down, D: Right, W: Up.<br>
+            The timer runs when Play Mode starts, tracking your time. Try to solve it quickly!</p>
+            <p dir="auto">While in the main menu:</p>
+            <ul dir="auto">
+            <li><b>Push key 1:</b> To play the game with a 4x4 grid size.</li>
+            <li><b>Push key 2:</b> To play the game with a 5x5 grid size (difficult level).</li>
+            </ul>
+            <p dir="auto">While in play mode:</p>
+            <ul dir="auto">
+            <li><b>Push key 0:</b> To return to the main menu.</li>
+            <li><b>Push key 3:</b> To quit the game.
+            When the puzzle is solved, you have won the game! <b>Let's celebrate with fireworks!</b></li>
+            </ul>
+            </article></div><br><br><br><br><h2>MAPS-by-KNP</h2><div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 dir="auto"><a id="user-content-maps-by-knp" class="anchor" aria-hidden="true" href="#maps-by-knp"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MAPS-by-KNP</h1>
+            <p dir="auto"><br>MAPS by KNP is Geographic Information Mapping software using OpenStreetMap open source code database API (OSM data), C++ programming language, GTK glade, and EZGL Graphics Library. <br></p>
+            <p dir="auto"><a target="_blank" rel="noopener noreferrer" href="images/firstphoto.png"><img src="images/firstphoto.png" alt="" style="max-width: 100%;"></a>
+            <br><b>Developers:</b> Kevin Zeng, Nicholas Short (<a href="https://github.com/nicholasshort">https://github.com/nicholasshort</a>) and Paula Perdomo (hence KNP).<br>
+            <b>ECE297 Software, Communication &amp; Design Final Course Project - 2021 Academic Year.</b></p>
+            <p dir="auto"><br>Source code CANNOT be provided as this is the final project of the University of Toronto's ECE297 course. <br>
+            For questions or insights on MAPS by KNP, please contact me.</p>
+            <h1 dir="auto"><a id="user-content-design-acheievements" class="anchor" aria-hidden="true" href="#design-acheievements"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Design Acheievements!</h1>
+            <p dir="auto">MAPS by KNP has the following features, enabling the user ease in navigation.
+            <a target="_blank" rel="noopener noreferrer" href="images/design_achievements.png"><img src="images/design_achievements.png" alt="" style="max-width: 100%;"></a></p>
+            <h1 dir="auto"><a id="user-content-functionalities-of-our-map" class="anchor" aria-hidden="true" href="#functionalities-of-our-map"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Functionalities of our map...</h1>
+            <ul dir="auto">
+            <li><b>Night Mode:</b> An alternate colour scheme.</li>
+            <li><b>Help Center:</b> Pop-up display outlining the intricacies and fundamental capabilities of our program.</li>
+            <li><b>Subway Routes &amp; Stations:</b> Additional overlay used to visualize the city's subway lines. Data comes directly from the OSM database API.</li>
+            <li><b>Search Bar AutoComplete:</b> Allows the user to find their desired results quicker. It also acts as a sort of spell check, allowing the user to know when their input is incorrect, and providing the correct inputs at the same time.</li>
+            <li><b>Directions &amp; Pathfinding:</b> Once the user inputs two different locations, the fastest path is highlighted and directions for travel are provided.</li>
+            <li><b>Courier Path Travel:</b> This feature is for the courier path travel algorithm, used to optimize travel.</li>
+            </ul>
+            <h1 dir="auto"><a id="user-content-algorithms-used-for-pathfinding-and-courier-path-travel-problem" class="anchor" aria-hidden="true" href="#algorithms-used-for-pathfinding-and-courier-path-travel-problem"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Algorithms used for Pathfinding and Courier Path Travel problem:</h1>
+            <ul dir="auto">
+            <li>Greedy algorithm</li>
+            <li>Dijkstra's algorithm</li>
+            <li>A* search algorithm</li>
+            </ul>
+            <h1 dir="auto"><a id="user-content-is-our-map-usable-and-responsive" class="anchor" aria-hidden="true" href="#is-our-map-usable-and-responsive"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Is our map USABLE and RESPONSIVE?</h1>
+            <p dir="auto"><br>During the development of MAPS by KNP, we considered what made an graphical interface usable and speed of our code. Our map contains key aspects from the Seven Princples of GIS usability and Tolerable Waiting times for Web users, with the purpose of enhancing user intercation, usability and responsiveness. <br></p>
+            <p dir="auto">C. Davies and D. Medyckyj-Scott, GIS usability: recommendations based on the user's view, Research Paper, International Journal of Geographical Information Science, 1994, doi: 10.1080/02693799408901993. [Online]. Available:  <a href="https://doi.org/10.1080/02693799408901993" rel="nofollow">https://doi.org/10.1080/02693799408901993</a></p>
+            <p dir="auto">F. Fui-Hoon Nah, A study on tolerable waiting time: how long are Web users willing to wait?, Behaviour &amp; Information Technology, 2004, doi: 10.1080/01449290410001669914. [Online]. Available: <a href="https://doi.org/10.1080/01449290410001669914" rel="nofollow">https://doi.org/10.1080/01449290410001669914</a></p>
+            <h1 dir="auto"><a id="user-content-oral-presentation---final-presentation" class="anchor" aria-hidden="true" href="#oral-presentation---final-presentation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Oral Presentation - Final Presentation:</h1>
+            <p dir="auto">For more information about our GIS software, check out more about MAPS by KNP through our final presentation!
+            <a href="https://docs.google.com/presentation/d/18_aK41gAW0pERDQKpa9igWFF9OfV9JMR3r9J-_KwMtU/edit#slide=id.p" rel="nofollow">https://docs.google.com/presentation/d/18_aK41gAW0pERDQKpa9igWFF9OfV9JMR3r9J-_KwMtU/edit#slide=id.p</a></p>
+            </article></div><br><br><br><br>
 
     </main>
 

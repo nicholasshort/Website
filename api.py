@@ -1,3 +1,5 @@
+# Not currently used in main.py due to html formatting issues
+
 import requests
 
 class GithubAPI():
