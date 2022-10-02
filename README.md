@@ -1,4 +1,4 @@
-My personal website is currently running on a VM hosted by linode. 
+My personal website is currently running on a VM hosted by Linode. 
 
 It is accessible here: http://nicholasshort.com/
 
