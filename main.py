@@ -1,7 +1,7 @@
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 hostName = '172.105.3.93'
-serverPort = 80
+serverPort = 8080
 
 class WebServer(BaseHTTPRequestHandler):
 
