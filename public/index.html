@@ -2,42 +2,77 @@
 <html>
 
 <head>
-    <title>Home</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <nav>
-                <ul>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Nicholas Short</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="resume.html">Resume</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-        <h1>Hi! My name is Nicholas Short</h1>
-        <img src="./images/Nicholas_Short-Photo.jpg" alt="Nicholas Short" id="photo">
-        <p>I am a Computer Engineering Student at the University of Toronto currently on my PEY.</p>
-        <p>I enjoy Embedded Programming, Electronics, Web Development, Robotics, and Control Systems.</p>
-        <p>Feel free to contact me through the links below, and check out some of the projects I'm working on through my Project page.</p>
-
-        <div class="contact-info">
-            <p>Cell: <b>647-994-2767</b></p>
-            <p>Email: <b>nicholas.r.h.short@gmail.com</b></p>
+  <main class="container mt-5">
+    <div class="row">
+      <div class="col-12 col-md-12">
+        <img src="./images/Nicholas_Short-Photo.jpg" alt="Nicholas Short" id="photo" class="img-fluid rounded-circle mb-3">
+        <div class="card">
+            <div class="card-body">
+                <p>Hi! My name is Nicholas Short</p>
+                <p>I am a Computer Engineering Student at the University of Toronto currently on my PEY.</p>
+                <p>I enjoy Embedded Programming, Electronics, Web Development, Robotics, and Control Systems.</p>
+                <p>Feel free to contact me through the links below. Check out some of the projects I'm working on through my Project page.</p>
+            </div>
         </div>
-
-        <div class="social-media-links">
-            <a href="https://github.com/nicholasshort" class="fa fa-github"></a>
-            <a href="https://www.youtube.com/channel/UCeQ9oHHwaFvMKI6Vz8t8YUQ" class="fa fa-youtube"></a>
-            <a href="https://www.linkedin.com/in/nicholasrhshort/" class="fa fa-linkedin"></a>
+      </div>
+    </div>
+    <div class = "row">
+      <div class="col-12 col-md-4 offset-md-5">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Contact Information</h5>
+            <p class="card-text">Cell: <b>647-994-2767</b></p>
+            <p class="card-text">Email: <b>nicholas.r.h.short@gmail.com</b></p>
+          </div>
         </div>
-    </main>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="social-media-container">
+          <div class="card-body">
+            <div class="social-media-links">
+              <a href="https://github.com/nicholasshort" class="fa fa-github"></a>
+              <a href="https://www.youtube.com/channel/UCeQ9oHHwaFvMKI6Vz8t8YUQ" class="fa fa-youtube"></a>
+              <a href="https://www.linkedin.com/in/nicholasrhshort/" class="fa fa-linkedin"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+   </div>
+  </main>
 </body>
+    
 
-</html>
