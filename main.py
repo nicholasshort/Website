@@ -24,6 +24,13 @@ class WebServer(BaseHTTPRequestHandler):
                 self.send_header("Content-type", "image/jpeg")
                 self.end_headers()
                 self.wfile.write(f)
+            
+            elif self.path.split(".")[-1] == "ico":
+                f = open(self.path[1:], "rb").read()
+                self.send_response(200)
+                self.send_header("Content-type", "image/x-icon")
+                self.end_headers()
+                self.wfile.write(f)
 
             else:
                 raise FileNotFoundError
