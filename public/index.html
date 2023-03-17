@@ -2,13 +2,21 @@
 <html>
 
 <head>
+  
   <title>Home</title>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
   <link href="styles.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" href="favicon.ico" />
+
+  <script src="script.js"></script>
+  
 </head>
 
 <body>
@@ -16,7 +24,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Nicholas Short</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-        aria-expanded="false" aria-label="Toggle navigation">
+        aria-expanded="false" aria-label="Toggle navigation" onclick="toggleNavbar()">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -37,20 +45,34 @@
 
   <main class="container mt-5">
     <div class="row">
-      <div class="col-12 col-md-12">
+      <div class="col-12 col-md-6">
         <img src="./images/Nicholas_Short-Photo.jpg" alt="Nicholas Short" id="photo" class="img-fluid rounded-circle mb-3">
+      </div>
+      <div class="col-12 col-md-6">
         <div class="card">
             <div class="card-body">
                 <p>Hi! My name is Nicholas Short.</p>
-                <p>I am a Computer Engineering Student at the University of Toronto, currently on my PEY.</p>
-                <p>I enjoy Embedded Programming, Electronics, Web Development, Robotics, and Control Systems.</p>
-                <p>Feel free to contact me through the links below. Check out some of the projects I'm working on through my Project page.</p>
+                <p>I am a Computer Engineering Student at the University of Toronto, currently on my internship year.</p>
+                <p>I enjoy working with IoT devices, Backend Development, Robotics, and pretty much everything Engineering.</p>
+                <p>Check out some of the projects I'm working on through my Project page, and view my past experience on my Resume page</p>
+                <p>Feel free to contact me through the links below!</p>
             </div>
         </div>
       </div>
     </div>
     <div class = "row">
-      <div class="col-12 col-md-3">
+      <div class="col-12 col-md-6 offset-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Contact Information</h5>
+            <p class="card-text">Cell: <b>647-994-2767</b></p>
+            <p class="card-text">Email: <b>nicholas.r.h.short@gmail.com</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class = "row">
+      <div class="col-12 col-md-6 offset-md-6">
         <div class="social-media-container">
           <div class="card-body">
             <div class="social-media-links">
@@ -61,19 +83,9 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-5 offset-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Contact Information</h5>
-            <p class="card-text">Cell: <b>647-994-2767</b></p>
-            <p class="card-text">Email: <b>nicholas.r.h.short@gmail.com</b></p>
-          </div>
-        </div>
-      </div>
+    </div>
     </div>
     </div>
    </div>
   </main>
 </body>
-    
-
